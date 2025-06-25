@@ -1,16 +1,8 @@
 import customtkinter
 from customtkinter import CTkImage
-from index_contr import go_to_feed,close_feed
+from index_contr import *
 import os
-from __init__ import tlr_dark,tlr_purple_1,tlr_purple_2,tlr_purple_3,tlr_purple_4,\
-    backup_ppl_1,backup_ppl_2,w_f5,w_main_white,w_pure_white
-
-from __init__ import fn_PR,fn_PM
-
-from tkinter import StringVar, Toplevel, Image
-from tkinter import messagebox
-from PIL import Image
-from PIL import ImageTk
+from config  import *
 
 customtkinter.set_appearance_mode("dark")
 
@@ -23,8 +15,8 @@ class Index(customtkinter.CTk):
         icon_path = os.path.join(BASE_DIR, "Images", "MELONICHE LOGO.ico")
         self.iconbitmap(icon_path)
 
-        app_width = 1200
-        app_height = 620
+        app_width = 1366
+        app_height = 780
 
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
@@ -87,20 +79,20 @@ class Index(customtkinter.CTk):
         self.my_sgn_up_descr = customtkinter.CTkLabel(self.my_sgn_auth_wrapper,
                                                       text="Create your Melodic Account",
                                                       text_color=w_main_white,
-                                                      font=("Poppins", 12))
+                                                      font=(fn_PM, 12))
         self.my_sgn_up_descr.pack(pady=(3,0))
 
 
         # Username
         self.my_sgn_username = customtkinter.CTkEntry(self.my_sgn_auth_wrapper,
-                                                  font=("Poppins", 12),
+                                                  font=(fn_PR, 12),
                                                   fg_color=backup_ppl_2,
                                                   placeholder_text="Username",placeholder_text_color=w_main_white,
                                                   width=250,height=30)
         self.my_sgn_username.pack(pady=(50,10))
 
         self.my_sgn_email = customtkinter.CTkEntry(self.my_sgn_auth_wrapper,
-                                                   font=("Poppins", 12),
+                                                   font=(fn_PR, 12),
                                                    placeholder_text="Email", placeholder_text_color=w_main_white,
                                                    fg_color=backup_ppl_2,
                                                    width=250, height=30)
@@ -108,7 +100,7 @@ class Index(customtkinter.CTk):
 
         # Password
         self.my_sgn_password = customtkinter.CTkEntry(self.my_sgn_auth_wrapper,
-                                                  font=("Poppins",12),
+                                                  font=(fn_PR,12),
                                                   placeholder_text="Password",placeholder_text_color=w_main_white,
                                                   fg_color=backup_ppl_2,
                                                   width=250,height=30)
@@ -121,7 +113,7 @@ class Index(customtkinter.CTk):
                                                   command=lambda:go_to_feed(self),
                                                   text="Sign Up",
                                                   hover_color=tlr_purple_4,
-                                                  font=("Poppins",13),
+                                                  font=(fn_PM,13),
                                                   fg_color=tlr_purple_3,
                                                   width=250,height=35)
         self.my_sgnup_button.pack(pady=(20,10))
@@ -168,7 +160,7 @@ class Index(customtkinter.CTk):
                                                font=("Cropar",40))
         self.my_title.pack(pady=(50, 3))
         self.my_lgn_descr = customtkinter.CTkLabel(self.my_auth_wrapper, text="Welcome back to Meloniche!",
-                                               font=("Poppins", 12))
+                                               font=(fn_PM, 12))
         self.my_lgn_descr.pack(pady=(3, 0))
 
         # Username
@@ -195,9 +187,10 @@ class Index(customtkinter.CTk):
                                                   command=lambda:go_to_feed(self),
                                                   text="Login",
                                                   hover_color=tlr_purple_4,
-                                                  font=("Poppins",13),
+                                                  font=(fn_PM,13),
                                                   fg_color=tlr_purple_3,
                                                   width=250,height=35)
+
         self.my_login_button.pack(pady=(20,10))
 
         self.login_case_frame = customtkinter.CTkFrame(self.my_auth_wrapper,

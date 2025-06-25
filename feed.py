@@ -1,8 +1,9 @@
 import customtkinter
-from __init__ import tlr_dark, tlr_purple_1,tlr_purple_2, tlr_purple_3,tlr_purple_4,\
-    w_main_white,w_f5,w_pure_white,backup_ppl_1,backup_ppl_2,moonphased,fn_PM,fn_PR
 
-from feed_contr import show_plays,show_trends,show_library,default_aside_right
+from MELOniche import feed_contr
+from config import *
+
+from feed_contr import *
 import os
 from tkinter import StringVar, Toplevel
 from PIL import Image
@@ -14,12 +15,13 @@ class Feed(customtkinter.CTkToplevel):
         super().__init__()
         self.title("Feed")
 
+
         BASE_DIR = os.path.dirname(os.path.abspath(__file__))
         icon_path = os.path.join(BASE_DIR, "Images", "MELONICHE LOGO.ico")
         self.iconbitmap(icon_path)
 
-        app_width = 1200
-        app_height = 620
+        app_width = 1366
+        app_height = 780
 
         screen_width = self.winfo_screenwidth()
         screen_height = self.winfo_screenheight()
@@ -35,8 +37,6 @@ class Feed(customtkinter.CTkToplevel):
         # FEED Frame
         self.feed_hero = customtkinter.CTkFrame(self, fg_color=tlr_dark)
         self.feed_hero.pack(fill="both", expand=True)
-
-
 
 
         # SIDEBAR Frame =============================================
@@ -99,9 +99,7 @@ class Feed(customtkinter.CTkToplevel):
                                                    fg_color=tlr_dark)
 
 
-
-
-        self.button_frame.pack(pady=10,padx=10,fill="both")
+        self.button_frame.pack(pady=10,padx=10,fill="both", expand=True)
         self.feed_btn.pack(pady=10, padx=10, fill="x")
         self.trends_btn.pack(pady=10, padx=10, fill="x")
         self.library_btn.pack(pady=10, padx=10, fill="x")
@@ -144,9 +142,6 @@ class Feed(customtkinter.CTkToplevel):
 
 
 
-
-
-
         self.content_frame.grid(row=0, column=1, sticky="nsew", padx=(10))
 
 
@@ -156,18 +151,20 @@ class Feed(customtkinter.CTkToplevel):
         self.top_n_searchbar.grid(row=0,column=1,pady=(9,8),padx=10)
 
 
-
         self.main_music_feed_wrapper.pack_propagate(False)
-        self.main_music_feed_wrapper.pack(padx=0, pady=(10, 0), fill="both", expand=True)
+        self.main_music_feed_wrapper.pack(padx=0, pady=(10, 40), fill="both", expand=True)
+
 
         self.aside_right.grid(row=0, column=2, sticky="nsew", padx=0)
 
 
 
-
-
-
-
         show_plays(self)
         default_aside_right(self)
+
+
+
+
+
+
 

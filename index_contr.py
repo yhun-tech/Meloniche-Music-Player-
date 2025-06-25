@@ -6,8 +6,6 @@ def go_to_feed(parent):
     feed.grab_set()
     parent.withdraw()  # Hide the Index window
 
-
-
 def close_feed():
     feed.destroy()
 
